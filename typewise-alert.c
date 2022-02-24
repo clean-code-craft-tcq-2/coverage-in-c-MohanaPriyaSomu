@@ -22,16 +22,18 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  (alertTarget == TO_CONTROLLER) ? sendToController(breachType) : sendToEmail(breachType);
+  (alertTarget == TO_CONTROLLER) ? sendToController(breachType, alertTarget) : sendToEmail(breachType, alertTraget);
 }
 
-void sendToController(BreachType breachType) {
+void sendToController(BreachType breachType, AlertTarget alertTarget) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  return alertTarget;
 }
 
-void sendToEmail(BreachType breachType) {
+void sendToEmail(BreachType breachType, AlertTarget alertTarget ) {
   const char* recepient = "a.b@c.com";
   printf("To: %s\n", recepient);
   printf(mailMessage[breachType]);
+  return alertTarget;
 }
