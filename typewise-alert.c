@@ -21,8 +21,10 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 AlertTarget checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
+  AlertTarget alert;
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  (alertTarget == TO_CONTROLLER) ? sendToController(breachType, alertTarget) : sendToEmail(breachType, alertTarget);
+  alert = (alertTarget == TO_CONTROLLER) ? sendToController(breachType, alertTarget) : sendToEmail(breachType, alertTarget);
+  return alert;
 }
 
 AlertTarget sendToController(BreachType breachType, AlertTarget alertTarget) {
