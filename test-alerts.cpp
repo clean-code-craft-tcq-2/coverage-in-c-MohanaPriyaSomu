@@ -72,20 +72,20 @@ TEST_CASE("Mail for High Active Cooling Type")
 }
 TEST_CASE("Alert to Controller for Medium Active Cooling Type")
 {
-	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
+	BatteryCharacter battchar1 = {MED_ACTIVE_COOLING, "Brand1"};
 	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -13) == TO_CONTROLLER);
-	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
+	BatteryCharacter battchar2 = {MED_ACTIVE_COOLING, "Brand2"};
 	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 11) == TO_CONTROLLER);
-	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
+	BatteryCharacter battchar3 = {MED_ACTIVE_COOLING, "Brand3"};
 	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 52) == TO_CONTROLLER);
 }
 
 TEST_CASE("Mail for Medium Active Cooling Type")
 {
-	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
+	BatteryCharacter battchar1 = {MED_ACTIVE_COOLING, "Brand1"};
 	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -13) == TO_EMAIL);
-	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
+	BatteryCharacter battchar2 = {MED_ACTIVE_COOLING, "Brand2"};
 	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 11) == TO_EMAIL);
-	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
+	BatteryCharacter battchar3 = {MED_ACTIVE_COOLING, "Brand3"};
 	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 52) == TO_EMAIL);
 }
