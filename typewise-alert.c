@@ -16,8 +16,8 @@ BreachType inferUpperBreach(double value, double upperLimit)
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
-  BreachType breach1 = inferLowerBreach(double value, double lowerLimit);
-  BreachType breach2 = inferUpperBreach(double value, double upperLimit);
+  BreachType breach1 = inferLowerBreach(value, lowerLimit);
+  BreachType breach2 = inferUpperBreach(value, upperLimit);
   BreachType breach = BreachType(int(breach1) + int(breach2));
   return breach;
 }
@@ -26,7 +26,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 {
   double lowerLimit = range[int(coolingType)][0];
   double upperLimit = range[int(coolingType)][1];
-  return inferBreach(temperatureInC, double lowerLimit, double upperLimit);
+  return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
