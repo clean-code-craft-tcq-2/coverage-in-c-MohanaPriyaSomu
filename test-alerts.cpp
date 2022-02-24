@@ -34,58 +34,58 @@ TEST_CASE("Medium Active Cooling Type")
 TEST_CASE("Alert to Controller for Passive Cooling Type")
 {
 	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -7) == sendToController(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -7) == TO_CONTROLLER);
 	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 15) == sendToController(NORMAL));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 15) == TO_CONTROLLER);
 	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 45) == sendToController(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 45) == TO_CONTROLLER);
 }
 
 TEST_CASE("Mail for Passive Cooling Type")
 {
 	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -7) == sendToEmail(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -7) == TO_EMAIL);
 	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 15) == sendToEmail(NORMAL));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 15) == TO_EMAIL);
 	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 45) == sendToEmail(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 45) == TO_EMAIL);
 }
 
 TEST_CASE("Alert to Controller for High Active Cooling Type")
 {
 	BatteryCharacter battchar1 = {HI_ACTIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -2) == sendToController(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -2) == TO_CONTROLLER);
 	BatteryCharacter battchar2 = {HI_ACTIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 20) == sendToController(NORMAL));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 20) == TO_CONTROLLER);
 	BatteryCharacter battchar3 = {HI_ACTIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 57) == sendToController(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 57) == TO_CONTROLLER);
 }
 
 TEST_CASE("Mail for High Active Cooling Type")
 {
 	BatteryCharacter battchar1 = {HI_ACTIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -2) == sendToEmail(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -2) == TO_EMAIL);
 	BatteryCharacter battchar2 = {HI_ACTIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 20) == sendToEmail(NORMAL));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 20) == TO_EMAIL);
 	BatteryCharacter battchar3 = {HI_ACTIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 57) == sendToEmail(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 57) == TO_EMAIL);
 }
 TEST_CASE("Alert to Controller for Medium Active Cooling Type")
 {
 	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -13) == sendToController(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar1, -13) == TO_CONTROLLER);
 	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 11) == sendToController(NORMAL));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar2, 11) == TO_CONTROLLER);
 	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 52) == sendToController(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_CONTROLLER, battchar3, 52) == TO_CONTROLLER);
 }
 
 TEST_CASE("Mail for Medium Active Cooling Type")
 {
 	BatteryCharacter battchar1 = {PASSIVE_COOLING, "Brand1"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -13) == sendToEmail(TOO_LOW));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar1, -13) == TO_EMAIL);
 	BatteryCharacter battchar2 = {PASSIVE_COOLING, "Brand2"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 11) == sendToEmail(NORMAL));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar2, 11) == TO_EMAIL);
 	BatteryCharacter battchar3 = {PASSIVE_COOLING, "Brand3"};
-	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 52) == sendToEmail(TOO_HIGH));
+	REQUIRE(checkAndAlert(TO_EMAIL, battchar3, 52) == TO_EMAIL);
 }
