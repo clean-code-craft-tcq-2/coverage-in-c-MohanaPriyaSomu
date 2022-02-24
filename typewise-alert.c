@@ -4,20 +4,10 @@
 const char* mailMessage[] = {"Hi, the temperature is too normal", "Hi, the temperature is too low", "Hi, the temperature is too high"};
 double range_lower_upper[3][2] = {{0,35}, {0,45}, {0,40}};
 
-BreachType inferLowerBreach(double value, double lowerLimit)
-{
-	return((value < lowerLimit) ? (TOO_LOW) : (NORMAL));
-}
-
-BreachType inferUpperBreach(double value, double upperLimit)
-{
-	return((value > upperLimit) ? (TOO_HIGH) : (NORMAL));
-}
-
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
-  BreachType breach1 = inferLowerBreach(value, lowerLimit);
-  BreachType breach2 = inferUpperBreach(value, upperLimit);
+  BreachType breach1 = ((value < lowerLimit) ? (TOO_LOW) : (NORMAL));
+  BreachType breach2 = ((value > upperLimit) ? (TOO_HIGH) : (NORMAL));
   BreachType breach = BreachType(int(breach1) + int(breach2));
   return breach;
 }
